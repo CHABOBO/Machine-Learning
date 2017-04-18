@@ -23,9 +23,13 @@ accuracy <- numeric()
 for (i in 1:3)
 {
         #Generating the model and output for the testing data
-        knnTest <- knn(train = training_features, test = testing_features, cl = training_def[], k = i)
+        knnTest <- knn(train = training_features, test = testing_features, cl = training_def[], k = 1,prob = FALSE,l=1,use.all = TRUE);
         value <- (sum(testing_def == knnTest) / 36707) * 100
         accuracy <- c(accuracy, mean(knnTest == testing_target))
+        
+        accuracy <- mean(knnTest == test_class_variable)
+        digit_accuracy <- c(digit_accuracy, accuracy)
+        print(paste("Accuracy at k = ", i, " is: ", accuracy), quote = F)
       
 }
 

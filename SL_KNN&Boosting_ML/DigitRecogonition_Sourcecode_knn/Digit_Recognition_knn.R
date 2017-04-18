@@ -12,6 +12,13 @@ test_class_variable <- test_data$V65
 
 digit_accuracy <- numeric() 
 
+knnTest <- knn(train_data, test_data, train_class_variable, k = 60,prob = TRUE,l = 20,use.all = FALSE)
+accuracy <- mean(knnTest == test_class_variable)
+digit_accuracy <- c(digit_accuracy, accuracy)
+print(paste("Accuracy at k = ", 1, " is: ", accuracy), quote = F)
+
+
+
 for(i in seq(1, 100, 1))
 {
         knnTest <- knn(train_data, test_data, train_class_variable, k = i)

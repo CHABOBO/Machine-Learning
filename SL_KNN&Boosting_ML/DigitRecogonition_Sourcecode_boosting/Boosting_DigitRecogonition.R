@@ -12,7 +12,7 @@ train_data$V65 = as.factor(train_data$V65)
 test_data = read.csv(file="optdigits_test.csv",header = FALSE)
 test_data_target = test_data$V65
 
-control <- trainControl(method="repeatedcv", number=5, repeats=3)
+control <- trainControl(method="repeatedcv", number=5, repeats=3,)
 # C5.0
 model_c50 <- train(V65~., data=train_data, method="C5.0", metric="Accuracy", trControl=control)
 # Gradient Boosting
